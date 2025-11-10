@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Loja de Bolos</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <div class="logo">🍰 Loja de Bolos</div>
+    <nav>
+      <ul>
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Serviços</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>📋 Pedidos de Bolos</h1>
+
+    <form action="/adicionar" method="POST" class="pedido-form">
+      <input type="text" name="bolo" placeholder="Digite o nome do bolo pedido" required>
+      <button type="submit">Adicionar Pedido</button>
+    </form>
+
+    <ul class="lista-pedidos">
+      {% for pedido in pedidos %}
+        <li class="{{ 'concluido' if pedido.concluido else '' }}">
+          {{ loop.index }}. {{ pedido.bolo }}
+          {% if not pedido.concluido %}
+            <a class="btn concluir" href="{{ url_for('concluir', indice=loop.index0) }}">✅ Concluir</a>
+          {% endif %}
+          <a class="btn remover" href="{{ url_for('remover', indice=loop.index0) }}">❌ Remover</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
