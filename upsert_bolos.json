@@ -1,0 +1,20 @@
+[
+  {
+    "id_bolo": 1,
+    "nome": "Bolo de Chocolate",
+    "preco": 35.50,
+    "sabor": "Chocolate"
+  },
+  {
+    "id_bolo": 2,
+    "nome": "Bolo de Morango",
+    "preco": 42.00,
+    "sabor": "Frutas"
+  },
+  {
+    "id_bolo": 3,
+    "nome": "Bolo de Cenoura",
+    "preco": 29.90,
+    "sabor": "Tradicional"
+  }
+]
